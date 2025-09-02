@@ -1,153 +1,131 @@
-SmartSpend – Smart Expense Tracker Web Application
-SmartSpend is a secure and user-friendly expense tracker designed to empower individuals to manage their finances effortlessly. It offers intuitive budgeting, insightful analytics, personalized financial guidance, and robust customization—all with enterprise-grade security and modern design.
+# 💸 SmartSpend – Smart Expense Tracker Web Application
 
-Features
-Authentication and Security
-User registration and login (with role-based access).
+SmartSpend is a **secure**, **user-friendly**, and **intuitive** expense tracker designed to empower individuals to manage their finances effortlessly. With modern design, personalized analytics, smart alerts, and full accessibility—SmartSpend brings powerful budgeting tools to your fingertips.
 
-Email & OTP verification, secure password storage using BCrypt.
+---
 
-Password reset via email link.
+##  Table of Contents
+- [🌟 Features](#-features)
+- [🗂 Project Structure](#-project-structure)
+- [🛠 Tech Stack](#-tech-stack)
+- [🚀 Getting Started](#-getting-started)
+  - [Prerequisites](#-prerequisites)
+  - [Setup & Run](#-setup--run)
+- [💡 Key Usage Instructions](#-key-usage-instructions)
+- [🤝 Contributing](#-contributing)
+- [📜 License](#-license)
+- [🙏 Acknowledgements](#-acknowledgements)
 
-Session management with robust error messages on login and password reset.
+---
 
-Expense and Budget Management
-Full CRUD operations for expenses/income with support for custom fields (title, amount in INR, category, type, date, description).
+##  Features
 
-Custom & Smart Categories: Create, edit, and delete categories—including on the fly from the transaction form—with automatic transaction updates when a category changes.
+**Authentication & Security**
+- Role-based user registration & login
+- Email & OTP verification
+- Secure password storage (BCrypt)
+- Password reset via secure email link
+- Robust session and error handling
 
-Recurring Transactions: Schedule and manage recurring expenses/income, with one-click conversion between recurring and regular transactions.
+**Expense & Budget Management**
+- Full CRUD for transactions (title, amount ₹, category, date, description)
+- Custom & smart categories with auto-updating
+- Recurring transactions with quick toggle
+- Weekly & monthly budgets with real-time progress visuals
+- Flexible allocation (weekly / monthly / both / excluded)
 
-Budget Tracking: Set and independently manage weekly and monthly budgets with real-time visual progress. Allocate transactions to weekly, monthly, both, or neither using a simple dropdown selector.
+**Analytics & Dashboard**
+- Actionable dashboard summary (income, expenses, balance)
+- Interactive donut/pie charts
+- Filtering by date, category, amount, type
+- Export to PDF (iText) or Excel (Apache POI)
 
-Flexible Budget Allocation: Distinct controls to set/update amounts, expense totals, and progress for both weekly and monthly budgets.
+**Notifications & Sync**
+- Smart nudges for unusual spending or savings habits
+- Budget alerts (email, in-app, push/WebSocket)
+- Cloud backup and auto/manual sync options
 
-Exclude or allocate specific transactions for budget calculations.
+**UX & Accessibility**
+- Attractive dark mode interface
+- Responsive layout for mobile/tablet/desktop
+- Clean icons, floating action button, intuitive layout
+- ARIA-compliant labels and keyboard navigation
 
-Analytics and Dashboard
-Personalized Dashboard: Actionable, color-coded summary cards for total income, expenses, and balance; quick-add actions; friendly, inviting tone for greater engagement.
+---
 
-Interactive Charts: Modern donut/pie charts with real-time analysis.
+##  Project Structure
 
-Advanced Filtering and Sorting: Analyze transactions by date, amount, category, or type, and customizable search.
+/
+├── components/ # React UI components
+├── App.tsx # Main application component
+├── constants.ts # Application-wide constants
+├── index.html # Base HTML template
+├── index.tsx # App entry point (React DOM rendering)
+├── metadata.json # Project metadata (e.g., version, author)
+├── package.json # Dependencies & scripts
+├── tsconfig.json # TypeScript configuration
+├── types.ts # Type definitions and interfaces
+└── vite.config.ts # Vite build and dev server configuration
 
-Reports: Export filtered transactions as PDF (via iText) or Excel (via Apache POI).
 
-Notifications & Data Reliability
-Smart Nudges/Alerts: Proactive, dismissible alerts for unusual spending or healthy money habits.
+> Your codebase appears to be primarily the **frontend application** built with React + TypeScript using Vite. Integrations like backend APIs, security, and sync logic would connect to this UI layer.
 
-Budget Alerts: Email, in-app notifications, and WebSocket/push alerts for nearing/exceeding budgets.
+---
 
-Cloud Backup: Secure, auto-syncing of all user data with real-time status, customizable sync intervals (5, 10, 15 min, or off), and manual sync option.
+##  Tech Stack
 
-User Experience & Accessibility
-Modern, inviting dark mode with gentle colors.
+- **Frontend Framework**: React (TypeScript)
+- **Bundler / Dev Tooling**: Vite
+- **Styling**: Tailwind CSS or Bootstrap with custom dark theme
+- **Visualization**: Chart.js or Recharts
+- **Build Tools**: npm with scripts defined in `package.json`
+- **Types**: Strong typing via TypeScript (`tsconfig.json`, `types.ts`)
 
-Intuitive UI: Floating action button, polished icons, improved readability, interactive elements, and cleaner layouts.
+*(Backend technologies like Spring Boot, WebSocket, email, and databases would apply when the backend is integrated, which may be part of another repository or upcoming module.)*
 
-Responsive design: Fully functional on mobile, tablet, and desktop.
+---
 
-Settings Modal: Customize auto-sync interval and other preferences.
+##  Getting Started
 
-Accessible design: Clear labels, ARIA, keyboard-friendly controls, and user-friendly error messages.
+### Prerequisites
+- Node.js and npm installed
 
-Tech Stack
-Backend:
+### Setup & Run
+```bash
+# Clone the repository
+git clone https://github.com/VINOTHPADMANABAN2809/Personal-Expense-Tracker-.git
+cd Personal-Expense-Tracker-
 
-Spring Boot, Spring MVC, Spring Security, Spring Data JPA, JavaMailSender, Hibernate Validator, WebSocket (STOMP)
-
-Email Service: SMTP/SendGrid/Mailgun
-
-Database: MySQL / PostgreSQL / MongoDB
-
-Frontend:
-
-React.js (with TSX), Axios, React Router
-
-Styling: Tailwind CSS / Bootstrap, custom dark theme
-
-Data Visualization: Chart.js or Recharts
-
-Testing:
-
-JUnit 5, Mockito, MockMvc
-
-Build & Deployment:
-
-Maven, Docker (optional)
-
-Render / Railway / AWS EC2 (backend)
-
-Vercel / Netlify (frontend)
-
-Getting Started
-Prerequisites
-Node.js, npm, Java 17+, Maven
-
-Database (MySQL/Postgres/MongoDB)
-
-Optional: Docker
-
-Setup
-Clone the repository
-
-bash
-git clone https://github.com/your-username/smartspend.git
-cd smartspend
-Backend
-
-bash
-cd backend
-mvn clean install
-# Setup environment variables for DB, SMTP, etc.
-mvn spring-boot:run
-Frontend
-
-bash
-cd ../frontend
+# Install dependencies
 npm install
-npm start
-Testing
 
-Backend: mvn test
-
-Frontend: npm test
-
-Deployment
-
-See /deploy instructions for Docker, Render, AWS EC2, Vercel/Netlify.
+# Start development server
+npm run dev
+```
 
 Key Usage Instructions
-Sign Up / Sign In: Register with email verification; reset passwords with a secure link.
 
-Add/Edit/Delete Transactions: Use the floating action button or summary cards; set categories, amounts (₹), recurrence, and budget allocation (weekly, monthly, both, or exclude).
+Start the app via the dev server and open it in your browser.
 
-Budget Tracking: Update weekly and monthly budgets independently; visual progress with clear period indicators.
+Use the intuitive UI powered by React to:
 
-Category Management: Use dedicated modal to create/rename/delete categories; link to the form for in-context creation.
+View summary dashboard (income, expenses, balance)
 
-Reports: Download filtered reports from the dashboard.
+Add, edit, and delete transactions via forms
 
-Auto-Sync: Allow auto-sync at chosen interval and trigger manual sync anytime.
+Create and manage categories
 
-Smart Nudges: Responsive alerts guide healthy spending automatically.
+Track weekly/monthly budgets with real-time feedback
 
-Code Organization
-/backend – Spring Boot server, REST API, WebSocket, security, email
+Visualize data using charts
 
-/frontend – React (TSX), components, routing, dark mode styling
+See alerts or nudges in real time
 
-/deploy – Docker, CI/CD, deployment scripts
+Download filtered reports (PDF / Excel) if backend supports it
 
-/docs – API & architecture details
-
-Contributing
-PRs are welcome! Please read the CONTRIBUTING.md for style and workflow guidelines.
-
-License
-This project is open source and available under the MIT License.
-
+Settings like dark mode and sync intervals may be accessible via app UI
 Acknowledgements
-Inspired by modern fintech practices and user-centric design.
 
-Thanks to all contributors and the open source community.
+Inspired by modern fintech UI/UX patterns and budgeting workflows
+
+Thanks to all contributors and the open-source community for support!
